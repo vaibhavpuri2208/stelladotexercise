@@ -1,6 +1,9 @@
-<h1>Editing setting</h1>
+<%= render 'header'%>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @setting %> |
-<%= link_to 'Back', settings_path %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#header_title').text("Edit Configurations")
+	})
+</script>

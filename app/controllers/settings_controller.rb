@@ -1,11 +1,13 @@
 class SettingsController < ApplicationController
   before_action :set_cache_setting, only: [:show, :edit]
   before_action :set_setting, only: [:update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /settings
   # GET /settings.json
   def index
     @settings = Setting.all
+    redirect_to setting_url(current_user.setting)
   end
 
   # GET /settings/1
@@ -26,7 +28,7 @@ class SettingsController < ApplicationController
   # POST /settings.json
   def create
     @setting = Setting.new(setting_params)
-
+    @setting.user_id = current_user 
     respond_to do |format|
       if @setting.save
         format.html { redirect_to @setting, notice: 'Setting was successfully created.' }

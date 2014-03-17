@@ -1,36 +1,39 @@
-<h1>Listing settings</h1>
+<div class="row">
+  <div class="span1">
+  </div>
+  <div class="span8">
+    <h2>Global Settings Configuration</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Feature</th>
+          <th>Items</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
 
-  <tbody>
-      <tr>
-        <td><b>Email</b></td>
-        <td><b>Feature</b></td>
-        <td><b>Items</b></td>
-        <td><b>Priority</b></td>
-      </tr>  
-    <% @settings.each do |setting| %>
-      <tr>
-        <td><%= setting.email %></td>
-        <td><%= check_box_tag :feature, setting.feature, setting.feature, {disabled:true} %></td>
-        <td><%= setting.items %></td>
-        <td><%= setting.priority %></td>
+      <tbody>
+          <div class="row">
+            <% @settings.each do |setting| %>
+            <tr>
+              <td><%= setting.email %></td>
+              <td><%= check_box_tag :feature, setting.feature, setting.feature, {disabled:true} %></td>
+              <td><%= setting.items %></td>
+              <td><%= setting.priority %></td>
 
-        <td><%= link_to 'Show', setting %></td>
-        <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
-        <td><%= link_to 'Destroy', setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <td><%= link_to 'Show', setting %></td>
+              <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
+              <td><%= link_to 'Destroy', setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          </div>   
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Setting', new_setting_path %>
+    <%= link_to 'New Setting', new_setting_path %>
+  </div>
+  </div>

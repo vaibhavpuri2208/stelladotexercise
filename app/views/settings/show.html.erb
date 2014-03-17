@@ -1,8 +1,20 @@
-<p id="notice"><%= notice %></p>
- 		Email: <%= label_tag @setting.email %><br />
-    Feature : <%= check_box_tag :feature, @setting.feature,@setting.feature, {disabled:true} %><br />
-    Item (Integer)  : <%= label_tag @setting.items %><br />
-    Priority Level (Float) : <%= label_tag @setting.priority %><br />
-
-<%= link_to 'Edit', edit_setting_path(@setting) %> |
-<%= link_to 'Back', settings_path %>
+<%= render 'header'%>
+	<div class="row">
+	<div class="span5 offset1">
+	 <table class="table">
+		<tr>
+	 		<td><b>Email:</b> <%=  @setting.email %></td>
+	  </tr>
+	  <tr>
+	   	 <td><b>Feature :</b> <%= check_box_tag :feature, @setting.feature,@setting.feature, {disabled:true} %></td>
+	   </tr>
+	   <tr>
+	    	<td><b>Item (Integer)</b>  : <%=  @setting.items %></td>
+	   </tr>
+	   <tr>
+	  	  <td><b>Priority Level (Float)</b> : <%=  @setting.priority %></td>
+		</tr>
+	</table>
+	<%= link_to 'Edit', edit_setting_path(@setting), class:'btn btn-primary', style:"color: #F6EBEB;"%> 
+	</div>
+</div>

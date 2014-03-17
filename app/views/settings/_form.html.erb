@@ -1,21 +1,48 @@
-<%= form_for(@setting) do |f| %>
-  <% if @setting.errors.any? %>
+<div class="row">
+  <div class="span10 offset1">
+    <%= form_for(@setting, html:{ class: "form-horizontal"})  do |f| %>
+    <% if @setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
 
       <ul>
-      <% @setting.errors.full_messages.each do |msg| %>
+        <% @setting.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
+    <div class="row">
+      <div class="control-group">
+        <%=label_tag :email, "Email:", {class:"control-label"}%> 
+        <div class="controls">
+          <%=  f.text_field :email %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%=label_tag :feature, "Show Features:", {class:"control-label"}%> 
+        <div class="controls">
+          <%=  f.check_box :feature %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%=label_tag :items, "Rating (1 to 5):", {class:"control-label"}%> 
+        <div class="controls">
+          <%=  f.text_field :items %>
+        </div>
+      </div>
 
-  <div class="actions">
-    Email: <%= f.text_field :email %><br />
-    Feature : <%= f.check_box :feature %><br />
-    Item (Integer)  : <%= f.number_field :items %><br />
-    Priority Level (Float) : <%= f.text_field :priority %><br />
-    <%= f.submit %>
+      <div class="control-group">
+        <%=label_tag :priority, "Priority (0 to 1):", {class:"control-label"}%> 
+        <div class="controls">
+          <%=  f.text_field :priority %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.submit 'Update', {class:"btn btn-primary", style:"text-align:center;margin-left:20%; margin-top:10px;"} %>
+      </div>    
+    </div>
+    <% end %>
   </div>
-<% end %>
+</div> 
+  
