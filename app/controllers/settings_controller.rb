@@ -28,7 +28,7 @@ class SettingsController < ApplicationController
   # POST /settings.json
   def create
     @setting = Setting.new(setting_params)
-    @setting.user_id = current_user 
+    @setting.user_id = current_user.id 
     respond_to do |format|
       if @setting.save
         format.html { redirect_to @setting, notice: 'Setting was successfully created.' }

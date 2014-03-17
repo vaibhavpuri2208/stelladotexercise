@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :setting
 
 	def add_settings
-		self.create_setting(email:self.email, items:3, priority:1.2, feature:true)
+		self.create_setting(email:self.email, items:3, priority:1.0, feature:true)
 	end
 
 end
